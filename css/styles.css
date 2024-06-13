@@ -1,0 +1,201 @@
+@keyframes flipPage {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(-90deg);
+    }
+}
+
+
+.pagina-principal{
+	align-items: center;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* El contenido principal ocupará todo el alto del contenedor */
+}
+
+.contenido-principal img{
+	width: 100px; /* Ancho deseado */
+    max-width: 100%; /* Ancho máximo del 100% del contenedor */
+    height: auto; /* Altura automática para mantener la proporción */
+    max-height: 100vh; /* Altura máxima del 100% del viewport */
+    
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.nav-buttons {
+    position: absolute;
+    bottom: 10px; /* Ajusta la posición vertical */
+    width: 100%; /* Opcional: Ajusta el ancho al 100% del contenedor */
+    text-align: center; /* Centra los botones horizontalmente */
+	  top: -1px;
+}
+
+.prev-btn,
+.next-btn {
+    /* Estilos de los botones */
+    font-size: 3rem;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    margin: 0 50px; /* Espacio entre los botones */
+    padding: 30px;
+}
+
+  .nav {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .nav li {
+	position: relative;
+  }
+  
+  .nav li a {
+	display: block;
+	padding: 10px 15px;
+	text-decoration: none;
+	color: #333;
+	align-items: center;
+  }
+  
+  /* Estilos para el submenú */
+  .dropdown-menu {
+	display: none;
+	position: absolute;
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	padding: 10px;
+	z-index: 1;
+  }
+  
+  /* Animación para mostrar el submenú */
+  .nav li:hover > .dropdown-menu {
+	display: block;
+	animation: slideDown 0.3s ease-in-out;
+  }
+
+  .nav li:hover{
+    background-color: #3333331f;
+  }
+  
+  @keyframes slideDown {
+	0% {
+	  opacity: 0;
+	  transform: translateY(-10px);
+	}
+	100% {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
+  
+  /* Animación para ocultar el submenú */
+  .nav li .dropdown-menu:not(:hover) {
+	animation: slideUp 0.3s ease-in-out;
+  }
+  
+  @keyframes slideUp {
+	0% {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+	100% {
+	  opacity: 0;
+	  transform: translateY(-10px);
+	}
+  }
+
+/* Estilos para el modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Fijo en la pantalla */
+  z-index: 1000; /* Asegúrate de que esté encima de todo lo demás */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Permite el desplazamiento si es necesario */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  animation: fadeIn 0.5s; /* Aplica la animación de desvanecimiento */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto; /* 15% desde la parte superior y centrado horizontalmente */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Ajusta el ancho según sea necesario */
+  max-width: 500px;
+  animation: slideIn 0.5s; /* Aplica la animación de deslizamiento */
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* Animación de deslizamiento */
+@keyframes slideIn {
+  from {
+      transform: translateY(-50px);
+  }
+  to {
+      transform: translateY(0);
+  }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilo para el mensaje de confirmación */
+#confirmation-message {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50; /* Color de fondo verde */
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1001; /* Encima del modal */
+  animation: fadeOut 3s forwards;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Animación para desvanecer el mensaje */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}

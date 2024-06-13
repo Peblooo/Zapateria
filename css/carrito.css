@@ -1,0 +1,55 @@
+@keyframes slideUp {
+	0% {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+	100% {
+	  opacity: 0;
+	  transform: translateY(-10px);
+	}
+  }
+
+#cart-icon {
+    position: relative; /* Necesario para el posicionamiento absoluto del carrito */
+  }
+  
+  .shopping-cart {
+    position: absolute; /* Cambiar a absoluto para que se posicione relativo al icono del carrito */
+    top: 100px; /* Ajustar según el tamaño del icono del carrito */
+    right: 550px;
+    width: 300px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Oculto por defecto */
+    z-index: 1000;
+    animation: fadeIn 0.5s; /* Aplica la animación de desvanecimiento */
+  }
+  
+  .shopping-cart h2 {
+    margin-top: 0;
+  }
+  
+  .shopping-cart ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .shopping-cart li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .shopping-cart button {
+    background: #007767;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .shopping-cart button:hover {
+    background: #015e51;
+  }
